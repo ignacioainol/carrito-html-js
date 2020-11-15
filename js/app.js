@@ -20,7 +20,10 @@ function cargarEventListeners() {
         limpiarHTML();
     });
 
-
+    document.addEventListener('DOMContentLoaded', () => {
+        articulosCarrito = JSON.parse(localStorage.getItem('carrito')) || [];
+        carritoHTML();
+    })
 }
 
 //funciones
@@ -111,5 +114,5 @@ function limpiarHTML() {
 }
 
 function sincronizarStorage() {
-    localStorage.setItem('carrito', articulosCarrito);
+    localStorage.setItem('carrito', JSON.stringify(articulosCarrito));
 }
