@@ -19,6 +19,8 @@ function cargarEventListeners() {
         articulosCarrito = [];
         limpiarHTML();
     });
+
+
 }
 
 //funciones
@@ -95,6 +97,9 @@ function carritoHTML() {
 
         contenedorCarrito.appendChild(row);
     })
+
+    //agregamos el carrito al localstorage
+    sincronizarStorage();
 }
 
 function limpiarHTML() {
@@ -103,4 +108,8 @@ function limpiarHTML() {
     while (contenedorCarrito.firstChild) {
         contenedorCarrito.removeChild(contenedorCarrito.firstChild);
     }
+}
+
+function sincronizarStorage() {
+    localStorage.setItem('carrito', articulosCarrito);
 }
